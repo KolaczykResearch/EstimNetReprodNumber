@@ -13,8 +13,8 @@ https://arxiv.org/abs/2002.05763
 
 ## Results
 
-* Figure 3.1                     : NoisyBF.R
-* Figure 5.1 : BF_MME_simulation.R
+* Figure 3.1                     : NoisyBF.R
+* Figure 5.1                     : BF_MME_simulation.R
 * Figures 5.2, 5.3 and Table 5.1 : BF_MME_application.R
  
 
