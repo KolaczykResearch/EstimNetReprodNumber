@@ -5,16 +5,16 @@ https://arxiv.org/abs/2002.05763
 
 ## R
 
-* Algorithm 1                        : NTS5_BF.R
-* Create random networks  : createNetwork_random.R
+* Algorithm 1               : NTS5_BF.R
+* Create random networks    : createNetwork_random.R
 * Create hospital networks  : createNetwork_hospital.R
 * Create school networks    : createNetwork_school.R
 
 
 ## Results
 
-* Figure 3.1                                : NoisyBF.R
-* Figure 5.1                                : BF_MME_simulation.R
+* Figure 3.1                     : NoisyBF.R
+* Figure 5.1                     : BF_MME_simulation.R
 * Figures 5.2, 5.3 and Table 5.1 : BF_MME_application.R
  
 
