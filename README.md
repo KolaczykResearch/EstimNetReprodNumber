@@ -5,10 +5,10 @@ https://arxiv.org/abs/2002.05763
 
 ## R
 
-* Algorithm 1               : NTS5_BF.R
-* Create random networks    : createNetwork_random.R
-* Create hospital networks  : createNetwork_hospital.R
-* Create school networks    : createNetwork_school.R
+* Algorithm 1              : NTS5_BF.R
+* Create random networks   : createNetwork_random.R
+* Create hospital networks : createNetwork_hospital.R
+* Create school networks   : createNetwork_school.R
 
 
 ## Results
