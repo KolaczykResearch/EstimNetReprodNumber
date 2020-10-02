@@ -17,7 +17,7 @@ getR0 <- function(bf,theta,gamma)
 {
   theta/(theta+gamma)*(bf-1)
 }
-source("../../R/NTS5_BF.R")
+source("../../R/MME_BF.R")
 
 ############ hospital ############
 # load data
@@ -30,7 +30,7 @@ alpha0 <- 0.1
 Y <- as.matrix(adj_list[[1]])
 Ystar <-  as.matrix(adj_list[[2]])
 Ystar2 <- as.matrix(adj_list[[3]])
-estBF_123 <- NTS5_BF(alpha0,P, Ystar2, Ystar, Y) ## Table 5.2 (hospital)
+estBF_123 <- MME_BF(alpha0,P, Ystar2, Ystar, Y) ## Table 5.2 (hospital)
 
 BF_est<- unlist(estBF_123[c(6,12)])[c(2,1,3)] +1
 BF_obs <- sapply(1:3, function(i) getBF(colSums(adj_list[[i]])))
@@ -59,10 +59,10 @@ P2_undiCol <- school2_undiCol_rep[[1]]@Dim[1]
 P3_undiCol <- school3_undiCol_rep[[1]]@Dim[1]
 P4_undiCol <- school4_undiCol_rep[[1]]@Dim[1]
 
-school1_undiCol_BF123 <- NTS5_BF(alpha0,P1_undiCol, as.matrix(school1_undiCol_rep[[1]]), as.matrix(school1_undiCol_rep[[2]]), as.matrix(school1_undiCol_rep[[3]]))
-school2_undiCol_BF123 <- NTS5_BF(alpha0,P2_undiCol, as.matrix(school2_undiCol_rep[[1]]), as.matrix(school2_undiCol_rep[[2]]), as.matrix(school2_undiCol_rep[[3]]))
-school3_undiCol_BF123 <- NTS5_BF(alpha0,P3_undiCol, as.matrix(school3_undiCol_rep[[2]]), as.matrix(school3_undiCol_rep[[3]]), as.matrix(school3_undiCol_rep[[1]]))
-school4_undiCol_BF123 <- NTS5_BF(alpha0,P4_undiCol, as.matrix(school4_undiCol_rep[[2]]), as.matrix(school4_undiCol_rep[[3]]), as.matrix(school4_undiCol_rep[[1]])) 
+school1_undiCol_BF123 <- MME_BF(alpha0,P1_undiCol, as.matrix(school1_undiCol_rep[[1]]), as.matrix(school1_undiCol_rep[[2]]), as.matrix(school1_undiCol_rep[[3]]))
+school2_undiCol_BF123 <- MME_BF(alpha0,P2_undiCol, as.matrix(school2_undiCol_rep[[1]]), as.matrix(school2_undiCol_rep[[2]]), as.matrix(school2_undiCol_rep[[3]]))
+school3_undiCol_BF123 <- MME_BF(alpha0,P3_undiCol, as.matrix(school3_undiCol_rep[[2]]), as.matrix(school3_undiCol_rep[[3]]), as.matrix(school3_undiCol_rep[[1]]))
+school4_undiCol_BF123 <- MME_BF(alpha0,P4_undiCol, as.matrix(school4_undiCol_rep[[2]]), as.matrix(school4_undiCol_rep[[3]]), as.matrix(school4_undiCol_rep[[1]])) 
 
 school1_undiCol_BFseq <- sapply(1:4,function(i) getBF(colSums(school1_undiCol_rep[[i]])) )
 school2_undiCol_BFseq <- sapply(1:4,function(i) getBF(colSums(school2_undiCol_rep[[i]])) )
