@@ -1,4 +1,6 @@
-NTS5_BF=function(alpha0, P, Y, Ystar, Ystar2, Nb=500, tiny=0.0001, Zcv=1.96){
+# This function is adapted from Chang, Jinyuan, Eric D. Kolaczyk, and Qiwei Yao. "Estimation of subgraph densities in noisy networks." Journal of the American Statistical Association just-accepted (2020): 1-40.
+
+MME_BF=function(alpha0, P, Y, Ystar, Ystar2, Nb=500, tiny=0.0001, Zcv=1.96){
 
 # This program calculates point-estimates for two error rates Alpha, Beta, 
 # edge density, 2-star edge count, triangle count, and clustering coefficient.
