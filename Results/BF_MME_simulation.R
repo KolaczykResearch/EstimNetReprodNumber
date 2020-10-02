@@ -30,12 +30,12 @@ getOne <- function(data.network,alpha,beta,alpha0=0.09, Nb=500, tiny=0.0001, Zcv
   Ystar <- as.matrix(getObs(data.true,P,alpha,beta) )
   Ystar2 <-   as.matrix(getObs(data.true,P,alpha,beta) )
   scaleR0_obs <- getscaleR0(colSums( Y ))
-  res_est <- NTS5_BF(alpha0, P, Y, Ystar, Ystar2,Nb,tiny,Zcv)
+  res_est <- MME_BF(alpha0, P, Y, Ystar, Ystar2,Nb,tiny,Zcv)
   list_est<- c(res_est$Alpha,res_est$Beta,res_est$ScaleR0,res_est$cfScaleR0[1]<scaleR0_true&&res_est$cfScaleR0[2]>scaleR0_true,res_est$cfScaleR0[2]-res_est$cfScaleR0[1])
   return(c(alpha,beta,scaleR0_true,scaleR0_obs,list_est))
 }
 
-source("../../R/NTS5_BF.R")
+source("../../R/MME_BF.R")
 ################ load data ##################
 indir <-  "../../Data/HospitalNetworks/"
 load( paste0(indir,"dataTrue.RData") )
