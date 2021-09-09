@@ -13,9 +13,11 @@ https://arxiv.org/abs/2002.05763
 
 ## Results
 
-* Figure 3.1                     : NoisyBF.R
-* Figure 5.1                     : BF_MME_simulation.R
-* Figures 5.2, 5.3 and Table 5.1 : BF_MME_application.R
+* Figure 1                     : NoisyBF.R
+* Figure 2                     : BF_MME_simulation.R
+* Figures 3, 4 and Table 1 : BF_MME_application.R
+* Figure 5                     : BF_MME_HeterogeneousNoise.R
+* Figure 6                     : BF_MME_DependentNoise.R
  
 
 ## Data
