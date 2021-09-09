@@ -93,13 +93,13 @@ R0_school <- expand.grid(theta=theta_seq,gamma=gamma_seq) %>%
                                                            type==3 ~ "School 3",type==4 ~ "School 4"))%>%
   select(-c(tmp,bf,bf_low,type)) 
 
-############ Table 5.1 ############
+############ Table 1 ############
 table_all <- rbind(table_hosp,table_school)
 
 
-############ Figure 5.2 ############
+############ Figure 3 ############
 BF_res <- rbind(BF_hosp,BF_school)
-Fig5.2 <- BF_res %>%   mutate(Data = as.numeric(factor(Data) ) + as.numeric(factor(type2))/10 - 2/10 ) %>%
+Fig3 <- BF_res %>%   mutate(Data = as.numeric(factor(Data) ) + as.numeric(factor(type2))/10 - 2/10 ) %>%
   ggplot(aes(x = Data, y = means,color=factor(type),shape=factor(type2)))+geom_point()+ theme_bw() +
   geom_errorbar(aes(ymin=Low, ymax=High), width=.05, show.legend=FALSE)+
   theme(panel.border = element_rect(fill=NA,color="black", size=0.5),
@@ -110,9 +110,9 @@ Fig5.2 <- BF_res %>%   mutate(Data = as.numeric(factor(Data) ) + as.numeric(fact
   scale_x_continuous(breaks = 1:5,labels =c("Hospital",paste0("School ",1:4))  )
 
  
-############ Figure 5.3 ############
+############ Figure 4 ############
 R0_res <- rbind(R0_hosp,R0_school)
-Fig5.3 <- R0_res %>% mutate(gamma = as.numeric(as.character(gamma)) + as.numeric(factor(Data))/400 - .0075 ) %>%
+Fig4 <- R0_res %>% mutate(gamma = as.numeric(as.character(gamma)) + as.numeric(factor(Data))/400 - .0075 ) %>%
   ggplot(aes(x = gamma, y = mme,color=factor(Data),shape=factor(contact)))+geom_point(alpha = 0.7)+geom_errorbar(aes(ymin=Low, ymax=High), width=.002)+
   facet_grid(cols = vars(theta),labeller = label_both)+scale_x_continuous(breaks = round(gamma_seq,3),name=expression(gamma))+
   ylab(" ") +   theme_bw() +theme(panel.border = element_rect(fill=NA,color="black", size=0.5),
