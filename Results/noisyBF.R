@@ -96,7 +96,7 @@ res2 <- t(getCI(case_all[,4:6],boot_index,boot_n,ratio_true[2]))
 res3 <- t(getCI(case_all[,7:9],boot_index,boot_n,ratio_true[3]))
 res4 <- t(getCI(case_all[,10:12],boot_index,boot_n,ratio_true[4]))
 
-################ Figure 3.1 ##################
+################ Figure 1 ##################
 data.long <- data.frame(beta=beta,degree=50,Low=res1[2,],means=res1[1,],
                         High=res1[3,],type="Homogeneous",measures="Bias") %>%
   add_row(beta=beta,degree=50,Low=res1[5,],means=res1[4,],
@@ -115,7 +115,7 @@ data.long <- data.frame(beta=beta,degree=50,Low=res1[2,],means=res1[1,],
           High=res4[6,],type="Inhomogeneous",measures="Variance")%>% 
   mutate(degree=case_when(degree==50~ "average degree: 50",degree==100~ "average degree: 100"))
 
-Fig3.1 <- data.long %>% ggplot(aes(x = beta, y = means,color=factor(type)))+
+Fig1 <- data.long %>% ggplot(aes(x = beta, y = means,color=factor(type)))+
   geom_point(alpha = 0.7)+geom_errorbar(aes(ymin=Low, ymax=High), width=.005)+
   facet_grid(measures~degree, scales = "free")+ 
   theme_bw() +scale_x_continuous(breaks = c(0.1, .2, .3), name=expression(beta))+ ylab("")+
