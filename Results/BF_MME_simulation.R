@@ -59,7 +59,7 @@ getRes <- function(case)
 }
 table_all <- t(sapply(1:length(beta), function(i) getRes(res_MME[[i]])))
 res <- table_all[,c(3,1:2,7:9)]
-res[,1] <- rep(1,6)
+res[,1] <- rep(1,length(beta))
 colnames(res) <- c("kappa","alpha","beta","MAE","RF","Length")
 res_hosp <- data.frame(res) %>% mutate(Data="Hospital") %>% select(-kappa)  %>%  mutate(contact=1)
 
@@ -80,7 +80,7 @@ res3 <- table_all3[,c(3,1:2,7:9)]
 res4 <- table_all4[,c(3,1:2,7:9)]
 
 res <- rbind(res1,res2,res3,res4)
-res[,1] <- c(rep(1,6),rep(2,6),rep(3,6),rep(4,6))
+res[,1] <- c(rep(1,length(beta)),rep(2,length(beta)),rep(3,length(beta)),rep(4,length(beta)))
 colnames(res) <- c("kappa","alpha","beta","MAE","RF","Length")
 res_school <- data.frame(res) %>% mutate(Data=case_when(kappa==1 ~ "School 1",kappa==2 ~ "School 2",
                                                         kappa==3 ~ "School 3",kappa==4 ~ "School 4") ) %>%
