@@ -87,12 +87,12 @@ res_school <- data.frame(res) %>% mutate(Data=case_when(kappa==1 ~ "School 1",ka
   select(-kappa)%>%  mutate(contact=2)
 
 
-################ Figure 5.1 ##################
+################ Figure 2 ##################
 res <- rbind(res_hosp,res_school)
 res.long <- melt(res, id=c("Data","alpha","beta","contact"),measure=c("MAE","RF","Length"))%>% 
   mutate(alpha = case_when(alpha==0 ~ "alpha: 0",alpha==0.005 ~ "alpha: 0.005",alpha==0.01 ~ "alpha: 0.01" ))
  
-Fig5.1 <-res.long %>% mutate(beta = as.numeric(as.character(beta)) + as.numeric(factor(Data))/400- .0075 ) %>%
+Fig2 <-res.long %>% mutate(beta = as.numeric(as.character(beta)) + as.numeric(factor(Data))/400- .0075 ) %>%
   ggplot(aes(x = beta, y = value,color = factor(Data),shape=factor(contact)))+
   geom_point(alpha = 0.7)   +
   facet_grid(variable~alpha, scales = "free") + theme_bw() +
