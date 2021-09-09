@@ -35,11 +35,11 @@ getOne <- function(data.network,alpha,beta,alpha0=0.09, Nb=500, tiny=0.0001, Zcv
   return(c(alpha,beta,scaleR0_true,scaleR0_obs,list_est))
 }
 
-source("../../R/MME_BF.R")
+source("../R/MME_BF.R")
 ################ load data ##################
-indir <-  "../../Data/HospitalNetworks/"
+indir <-  "../Data/HospitalNetworks/"
 load( paste0(indir,"dataTrue.RData") )
-indir <-  "../../Data/SchoolNetworks/"
+indir <-  "../Data/SchoolNetworks/"
 load( paste0(indir,"dataTrue.RData") )
 
 ################ simulation ##################
@@ -47,8 +47,8 @@ load( paste0(indir,"dataTrue.RData") )
 m <- 500
 
 # set alpha and beta 
-beta <- rep(c(0.1,0.15,0.2),2)
-alpha <- rep(c(0.005,0.01),each=3)
+beta <- rep(c(0.1,0.15,0.2),3)
+alpha <- rep(c(0,0.005,0.01),each=3)
 
 # hospital
 res_MME <- lapply(1:length(beta),function (i) t(replicate(m ,getOne(g_true,alpha[i],beta[i]))) ) 
@@ -90,7 +90,7 @@ res_school <- data.frame(res) %>% mutate(Data=case_when(kappa==1 ~ "School 1",ka
 ################ Figure 5.1 ##################
 res <- rbind(res_hosp,res_school)
 res.long <- melt(res, id=c("Data","alpha","beta","contact"),measure=c("MAE","RF","Length"))%>% 
-  mutate(alpha = case_when(alpha==0.005 ~ "alpha: 0.005",alpha==0.01 ~ "alpha: 0.01" ))
+  mutate(alpha = case_when(alpha==0 ~ "alpha: 0",alpha==0.005 ~ "alpha: 0.005",alpha==0.01 ~ "alpha: 0.01" ))
  
 Fig5.1 <-res.long %>% mutate(beta = as.numeric(as.character(beta)) + as.numeric(factor(Data))/400- .0075 ) %>%
   ggplot(aes(x = beta, y = value,color = factor(Data),shape=factor(contact)))+
