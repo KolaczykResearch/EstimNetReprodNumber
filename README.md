@@ -18,7 +18,9 @@ https://arxiv.org/abs/2002.05763
 * Figures 3, 4 and Table 1 : BF_MME_application.R
 * Figure 5                     : BF_MME_HeterogeneousNoise.R
 * Figure 6                     : BF_MME_DependentNoise.R
- 
+* Figure 1 in the supplement   : NoisyBF_supp.R
+* Figure 2 in the supplement   : BF_MME_HeterogeneousNoise_supp.R
+* Figure 3 in the supplement   : BF_MME_DependentNoise_supp.R
 
 ## Data
 
