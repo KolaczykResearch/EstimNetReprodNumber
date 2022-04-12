@@ -117,7 +117,7 @@ res <- data.frame(res) %>% mutate(Data=case_when(kappa==1 ~ "Homogeneous, averag
   select(-kappa)  %>% mutate(Case=case_when(alpha==0.01 ~ "case 1",alpha==.009 ~ "case 2",alpha==.008 ~ "case 3",alpha==.007 ~ "case 4") ) %>%
   mutate(beta=0.1-beta)
 
-################ Figure 5 ##################
+################ Figure 2 in the supplement ##################
 res.long <- melt(res, id=c("Data","alpha","beta","Case"),measure=c("MAE","RF","Length"))
 
 
