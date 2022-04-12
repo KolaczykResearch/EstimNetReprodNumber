@@ -96,7 +96,7 @@ res2 <- t(getCI(case_all[,4:6],boot_index,boot_n,ratio_true[2]))
 res3 <- t(getCI(case_all[,7:9],boot_index,boot_n,ratio_true[3]))
 res4 <- t(getCI(case_all[,10:12],boot_index,boot_n,ratio_true[4]))
 
-################ Figure 1 ##################
+################ Figure 1 in the supplement ##################
 data.long <- data.frame(beta=beta,degree=50,Low=res1[2,],means=res1[1,],
                         High=res1[3,],type="Homogeneous",measures="Bias") %>%
   add_row(beta=beta,degree=50,Low=res1[5,],means=res1[4,],
