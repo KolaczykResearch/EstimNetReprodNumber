@@ -121,7 +121,7 @@ res <- data.frame(res) %>% mutate(Data=case_when(kappa==1 ~ "Homogeneous, averag
 res.long <- melt(res, id=c("Data","alpha","beta","Case"),measure=c("MAE","RF","Length"))
 
 
-Fig5 <- res.long %>% mutate(beta = as.numeric(as.character(beta)) + as.numeric(factor(Data))/4000- .00075 ) %>%
+Fig2_supp <- res.long %>% mutate(beta = as.numeric(as.character(beta)) + as.numeric(factor(Data))/4000- .00075 ) %>%
   ggplot(aes(x =beta, y = value,color = factor(Data)))+
   geom_point(alpha = 0.7)   +
   facet_grid(variable~. , scales = "free") + theme_bw(base_size = 14) +
