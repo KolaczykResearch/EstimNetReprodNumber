@@ -83,7 +83,7 @@ colnames(res) <- c("kappa","psi","phi","omega","MAE","RF","Length")
 res <- data.frame(res) %>% mutate(Data=case_when(kappa==1 ~ "Homogeneous, average degree 50",kappa==2 ~ "Homogeneous, average degree 100",
 kappa==3 ~ "Inhomogeneous, average degree 50",kappa==4 ~ "Inhomogeneous, average degree 100")  ) %>%
   select(-kappa)
-################ Figure 6 ##################
+################ Figure 3 in the supplement ##################
 res.long <- melt(res, id=c("Data","psi","phi","omega"),measure=c("MAE","RF","Length"))%>%
   mutate(psi = case_when(psi==0.015 ~ "psi=0.015, phi=0.15",psi==0.02 ~ "psi=0.02, phi=0.2"))
 
