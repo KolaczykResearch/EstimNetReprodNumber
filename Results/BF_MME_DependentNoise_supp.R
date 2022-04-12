@@ -88,7 +88,7 @@ res.long <- melt(res, id=c("Data","psi","phi","omega"),measure=c("MAE","RF","Len
   mutate(psi = case_when(psi==0.015 ~ "psi=0.015, phi=0.15",psi==0.02 ~ "psi=0.02, phi=0.2"))
 
  
-Fig6 <- res.long %>% mutate(omega = as.numeric(as.character(omega)) + as.numeric(factor(Data))/40- .075 ) %>%
+Fig3_supp <- res.long %>% mutate(omega = as.numeric(as.character(omega)) + as.numeric(factor(Data))/40- .075 ) %>%
   ggplot(aes(x = omega, y = value,color = factor(Data)))+
   geom_point(alpha = 0.7)   +
   facet_grid(variable~psi, scales = "free") + theme_bw(base_size = 14) +
